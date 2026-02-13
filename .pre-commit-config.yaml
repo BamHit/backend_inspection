@@ -1,26 +1,81 @@
-# Configuration pre-commit hooks
-
 repos:
+  # Ruff - Linter + Format
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.6
+    rev: v0.12.0
     hooks:
       - id: ruff
-        args: [--fix-only]
+        args: [--fix]
+        name: Ruff linter
       - id: ruff-format
+        name: Ruff formatter
 
+  # MyPy - Type checking
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.7.1
     hooks:
       - id: mypy
-        additional_dependencies: [pydantic, numpy, types-requests]
-        args: [--ignore-missing-imports]
+        name: MyPy type checker
+        additional_dependencies: [
+          pydantic,
+          numpy,
+          types-requests,
+        ]
+        args: [--config-file=pyproject.toml]
 
+  # Pre-commit hooks standard
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v5.0.0
     hooks:
-      - id: trailing-whitespace
-      - id: end-of-file-fixer
+      # Checks de sécurité
+      - id: detect-aws-credentials
+        name: Detect AWS credentials
+        args: [--allow-missing-credentials]
+      - id: detect-private-key
+        name: Detect private keys
+      
+      # Checks de format
       - id: check-yaml
+        name: Check YAML syntax
+        args: [--unsafe]
       - id: check-json
+        name: Check JSON syntax
+      - id: check-toml
+        name: Check TOML syntax
+      
+      # Checks de code
+      - id: debug-statements
+        name: Check for debug statements (pdb, breakpoint)
+      - id: check-merge-conflict
+        name: Check for merge conflict markers
+      
+      # Checks de fichiers
       - id: check-added-large-files
-        args: ['--maxkb=10000']
+        name: Check for large files
+        args: [--maxkb=10000]  # Max 10MB
+      - id: check-symlinks
+        name: Check for broken symlinks
+      - id: check-shebang-scripts-are-executable
+        name: Check shebangs are executable
+      - id: check-executables-have-shebangs
+        name: Check executables have shebangs
+      
+      # Formatage
+      - id: trailing-whitespace
+        name: Trim trailing whitespace
+      - id: end-of-file-fixer
+        name: Fix end of files
+      - id: mixed-line-ending
+        name: Fix mixed line endings
+        args: [--fix=lf]  # Force Unix line endings
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        name: Lint YAML files
+        args: [-c=.yamllint.yml]
+
+default_language_version:
+  python: python3.10
+
+fail_fast: false
