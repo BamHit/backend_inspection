@@ -1,0 +1,12 @@
+{
+"alignment_distance_threshold": 20,
+  "alignment_angle_threshold": 5.0,
+  "illumination_tolerance": 0.15,
+  "lighting_uniformity_tolerance": 0.2,
+  "frame_occupation_tolerance": 0.15,
+  "sharpness_tolerance": 0.25,
+  "hsv_lower_bound": [0, 0, 50],
+  "hsv_upper_bound": [180, 50, 255],
+  "sigmoid_steepness": 10.0,
+  "sigmoid_center_offset": 0.2
+}

@@ -1,0 +1,40 @@
+{
+  "camera_model": "Supertek ST10-48MPAF",
+  "cam_index": 1,
+  "resolution": {
+    "width": 8000,
+    "height": 6000
+  },
+  "fourcc": "MJPG",
+  "fps": 2,
+  "exposure": {
+    "auto": false,
+    "value": -5
+  },
+  "focus": {
+    "auto": false,
+    "value": 384
+  },
+  "white_balance": {
+    "r": 0.95,
+    "g": 1.00,
+    "b": 1.05
+  },
+  "gain": 0,
+  "processing": {
+    "brightness": 28,
+    "contrast": 32,
+    "saturation": 32,
+    "sharpness": 32,
+    "gamma": 32
+  },
+  "warmup_time": 1,
+  "warmup_frames": 1,
+  "notes": {
+    "optimal_distance_cm": 85,
+    "field_of_view_m2": 1.0,
+    "DFOV": 79,
+    "focus_optimized_for": "Holes with chamfer at center of Large Printer Leg",
+    "default_lens": "EFL 4.71mm, F/NO: 1.79 6P"
+  }
+}

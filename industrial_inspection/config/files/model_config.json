@@ -1,0 +1,15 @@
+{
+  "architecture": "large_cnn",
+  "num_classes": 6,
+  "input_size": 128,
+  "confidence_threshold": 0.1,
+  "class_names": [
+    "Thread",
+    "Hole",
+    "Nuts",
+    "Push_In_Rivet",
+    "Rivets",
+    "Foreign_Object"
+  ],
+  "model_path": "model_large_cnn_6classes_130126.pth"
+}
